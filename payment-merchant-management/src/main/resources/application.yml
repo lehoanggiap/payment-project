@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: payment-engine-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/merchant?ssl=true
+    username: test
+    password: test
+server:
+  port: 8084
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8082/eureka}

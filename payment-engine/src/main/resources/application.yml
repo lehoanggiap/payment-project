@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: payment-engine-service
+server:
+  port: 8083
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8082/eureka}
