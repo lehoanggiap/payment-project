@@ -2,9 +2,13 @@ spring:
   application:
     name: payment-engine-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/merchant?ssl=true
+    # TODO: Set up SSL for other environments
+    url: jdbc:postgresql://localhost:5432/merchant
     username: test
     password: test
+  jpa:
+    hibernate:
+      ddl-auto: create
 server:
   port: 8084
 eureka:

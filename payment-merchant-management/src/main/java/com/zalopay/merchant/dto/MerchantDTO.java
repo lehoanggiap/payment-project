@@ -1,23 +1,19 @@
-package com.zalopay.merchant.entity;
+package com.zalopay.merchant.dto;
 
 import com.zalopay.merchant.constant.merchant.BusinessType;
 import com.zalopay.merchant.constant.merchant.NumberOfAgents;
 import com.zalopay.merchant.constant.merchant.SourceOfKnown;
 import com.zalopay.merchant.constant.merchant.TransactionsPerMonth;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.UUID;
-
-@Entity
-public class Merchant {
-
-    @Id
-    private UUID id;
-
-    private String publicKey;
-
-    private String secretKey;
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class MerchantDTO {
 
     private String name;
 
