@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: payment-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: payment-engine-service
+          uri: lb://payment-engine-service
+          predicates:
+            - Path=/service/**
+          filters:
+            # StripPrefixGatewayFilterFactory will strip parts of the request (/service/** -> /**).
+            # For example, if you enter http://localhost:8081/service, it will strip the request to payment engine to http://localhost:8083
+            # https://cloud.spring.io/spring-cloud-gateway/reference/html/#_stripprefix_gatewayfilter_factory
+            - StripPrefix=1
+server:
+  port: 8081
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8082/eureka}

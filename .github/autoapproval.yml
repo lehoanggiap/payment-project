@@ -1,0 +1,12 @@
+_extends: github-settings
+
+from_owner: []
+
+required_labels:
+  - autoapproval
+
+blacklisted_labels:
+  - wip
+
+apply_labels:
+  - merged
