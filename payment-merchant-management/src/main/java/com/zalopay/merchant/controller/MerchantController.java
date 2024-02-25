@@ -1,17 +1,33 @@
 package com.zalopay.merchant.controller;
 
 import com.zalopay.merchant.dto.MerchantDTO;
+import com.zalopay.merchant.dto.response.ErrorResponseDTO;
+import com.zalopay.merchant.dto.response.ResponseDTO;
+import com.zalopay.merchant.service.MerchantService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/merchant")
 @RestController
+@AllArgsConstructor
 public class MerchantController {
 
-    @PostMapping("/register")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void register(@RequestBody MerchantDTO merchantDTO) {
+    private final MerchantService merchantService;
 
+    @PostMapping("/register")
+    public ResponseEntity<ResponseDTO> register(@RequestBody MerchantDTO merchantDTO) {
+        if (merchantDTO == null) {
+            ErrorResponseDTO errorResponseDTO = ErrorResponseDTO.builder()
+                    .errorMessage("Request body can not be null")
+                    .build();
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errorResponseDTO);
+        }
+        merchantService.save(merchantDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }
