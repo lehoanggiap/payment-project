@@ -1,0 +1,21 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: payment-engine-service
+  datasource:
+    url: jdbc:h2:file:./data/merchant-zalopay
+    username: test
+    password: test
+    driverClassName: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+eureka:
+  client:
+    enabled: false
