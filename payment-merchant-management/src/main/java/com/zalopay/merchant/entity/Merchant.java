@@ -1,6 +1,7 @@
 package com.zalopay.merchant.entity;
 
 import com.zalopay.merchant.constant.merchant.BusinessType;
+import com.zalopay.merchant.constant.merchant.State;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -25,10 +26,12 @@ public class Merchant {
 
     private String name;
 
+    private String password;
+
     @Column(unique = true)
     private String email;
 
-    private String number;
+    private String phoneNumber;
 
     private String address;
 
@@ -36,5 +39,7 @@ public class Merchant {
     private String taxCode;
 
     private BusinessType businessType;
+
+    private State state;
 
 }
