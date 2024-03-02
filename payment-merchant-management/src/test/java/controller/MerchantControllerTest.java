@@ -22,6 +22,7 @@ public class MerchantControllerTest extends ControllerTest{
         MerchantDTO merchantDTO = MerchantDTO.builder()
                 .email("test@company.com")
                 .taxCode("12345")
+                .password("12345")
                 .businessType(BusinessType.OFFLINE_SALE)
                 .build();
         String inputJson = super.mapToJson(merchantDTO);
