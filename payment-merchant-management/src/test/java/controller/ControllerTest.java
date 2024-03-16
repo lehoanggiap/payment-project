@@ -16,7 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = PaymentMerchantApplication.class)
 @WebAppConfiguration
-@TestPropertySource(locations = "classpath:application.yml")
+//@TestPropertySource(locations = "classpath:application.yml")
 public abstract class ControllerTest {
 
     protected MockMvc mvc;

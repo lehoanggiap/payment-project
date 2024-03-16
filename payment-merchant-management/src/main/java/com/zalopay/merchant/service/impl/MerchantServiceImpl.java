@@ -1,5 +1,6 @@
 package com.zalopay.merchant.service.impl;
 
+import com.zalopay.merchant.constant.merchant.State;
 import com.zalopay.merchant.dto.MerchantDTO;
 import com.zalopay.merchant.entity.Merchant;
 import com.zalopay.merchant.mapper.MerchantMapper;
@@ -27,6 +28,7 @@ public class MerchantServiceImpl implements MerchantService {
         // TODO: Send email
         merchant = merchantMapper.toEntity(merchantDTO);
         merchant.setId(UUID.randomUUID());
+        merchant.setState(State.INACTIVE);
         merchantRepository.save(merchant);
     }
 }
