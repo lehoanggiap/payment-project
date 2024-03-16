@@ -1,4 +1,4 @@
 package com.zalopay.merchant.dto.response;
 
-public class ResponseDTO {
+public abstract class ResponseDTO {
 }
